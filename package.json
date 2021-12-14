@@ -1,0 +1,26 @@
+{
+  "name": "secure-session-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sameer-coder/secure-session-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sameer-coder/secure-session-test/issues"
+  },
+  "homepage": "https://github.com/sameer-coder/secure-session-test#readme",
+  "dependencies": {
+    "fastify": "^3.25.0",
+    "fastify-passport": "^0.4.3",
+    "fastify-secure-session": "^3.0.0",
+    "passport-github2": "^0.1.12"
+  }
+}
