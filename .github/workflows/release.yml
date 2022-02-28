@@ -26,18 +26,16 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          token: ${{ github.event.inputs.token || github.token }}
+          token: ${{ github.event.inputs.token }}
           repository: nearform/github-action-bench-good-first-issues
           ref: feat-update-board
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - run: cd good-first-issues/dist && ls -al
-      - run: pwd
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ github.event.inputs.token || github.token }}
+          github-token: ${{ github.event.inputs.token }}
           script: |
             const script = require('./good-first-issues/dist/index.js')
             await script({ github, context, inputs: ${{ toJSON(github.event.inputs) }} })
