@@ -33,10 +33,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - run: ls -al
+      - run: cd good-first-issues && ls -al
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.token }}
           script: |
-            const script = require('./dist/index.js')
+            const script = require('../good-first-issues/dist/index.js')
             await script({ github, context, inputs: ${{ toJSON(inputs) }} })
