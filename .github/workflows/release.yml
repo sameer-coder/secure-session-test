@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: nearform/bench-good-first-issues@feat-update-board
+          repository: nearform/github-action-bench-good-first-issues@feat-update-board
           token: ${{ github.token }} # `GH_PAT` is a secret that contains your PAT
           path: good-first-issues
       - uses: actions/setup-node@v3
