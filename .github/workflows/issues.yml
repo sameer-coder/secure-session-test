@@ -13,7 +13,7 @@ on:
       project-id:
         description: 'project id'
         required: true
-        default: 'PN_kwDOBfteDc4AA3N5'
+        default: '1'
 
 jobs:
   run:
@@ -23,7 +23,7 @@ jobs:
         with:
           token: ${{ secrets.GH_PROJECTS_PAT }}
           repository: nearform/github-action-bench-good-first-issues
-          ref: feat-update-board
+          ref: get-board-issues
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
