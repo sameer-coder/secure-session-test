@@ -3,7 +3,7 @@ name: release
 on:
   workflow_dispatch:
     inputs:
-      github-token:
+      token:
         description: 'Github token to use'
         required: true
       organizations:
