@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          token: 'test'
+          token: ${{ secrets.github_token }}
           repository: nearform/github-action-bench-good-first-issues
           ref: feat-update-board
           path: good-first-issues
@@ -35,7 +35,7 @@ jobs:
           node-version-file: '.nvmrc'
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ inputs.token }}
+          github-token: ${{ secrets.github_token }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
             await script({ github, context, inputs: ${{ toJSON(inputs) }} })
