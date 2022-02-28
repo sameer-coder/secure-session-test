@@ -29,8 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: '${{ inputs.github-token }}'
-          repository: nearform/github-action-bench-good-first-issues@feat-update-board
+          token: ${{ inputs.github-token }}
+          repository: nearform/github-action-bench-good-first-issues@master
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
