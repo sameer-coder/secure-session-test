@@ -29,7 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: nearform/github-action-bench-good-first-issues@feat-update-board
+          repository: nearform/github-action-bench-good-first-issues
+          ref: feat-update-board
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
