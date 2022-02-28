@@ -32,7 +32,7 @@ jobs:
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version: '16'
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.token }}
