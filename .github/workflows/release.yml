@@ -6,6 +6,9 @@ on:
       token:
         description: 'Github token to use'
         required: true
+      github-token:
+        description: 'Github token to use'
+        required: true
       organizations:
         description: 'organizations'
         required: true
@@ -26,15 +29,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          token: ${{ inputs.github-token }}
           repository: nearform/github-action-bench-good-first-issues@feat-update-board
-          token: ${{ inputs.token }} # `GH_PAT` is a secret that contains your PAT
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ inputs.token }}
+          github-token: ${{ inputs.github-token }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
             await script({ github, context, inputs: ${{ toJSON(inputs) }} })
