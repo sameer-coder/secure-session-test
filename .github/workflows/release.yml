@@ -34,7 +34,7 @@ jobs:
           node-version-file: '.nvmrc'
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ I }}
+          github-token: ${{ inputs.token }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
             await script({ github, context, inputs: ${{ toJSON(inputs) }} })
