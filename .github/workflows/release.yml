@@ -27,14 +27,14 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: nearform/github-action-bench-good-first-issues@feat-update-board
-          token: ${{ github.token }} # `GH_PAT` is a secret that contains your PAT
+          token: ${{ inputs.token }} # `GH_PAT` is a secret that contains your PAT
           path: good-first-issues
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ I }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
             await script({ github, context, inputs: ${{ toJSON(inputs) }} })
