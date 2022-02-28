@@ -6,6 +6,19 @@ on:
       github-token:
         description: 'Github token to use'
         required: true
+      organizations:
+        description: 'organizations'
+        required: true
+        default: 'sameer-org'
+      time-interval:
+        description: 'timeInterval to use'
+        required: true
+        default: '10 days'
+      project-id:
+        description: 'project-id to use'
+        required: true
+        default: 'PN_kwDOBfteDc4AA3N5'
+      
 
 jobs:
   release:
@@ -24,9 +37,4 @@ jobs:
           github-token: ${{ inputs.github-token }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
-            await script({ github, context, inputs: ${{ toJSON({
-              organizations: 'sameer-org',
-              timeInterval: '10 days',
-              projectId: 'PN_kwDOBfteDc4AA3N5',
-              token: '${{ inputs.github-token }}'
-            }) }} })
+            await script({ github, context, inputs: ${{ toJSON({inputs}) }} })
