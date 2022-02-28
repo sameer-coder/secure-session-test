@@ -3,15 +3,19 @@ name: release
 on:
   workflow_dispatch:
     inputs:
-      semver:
-        description: 'The semver to use'
+      github-token:
+        description: 'Github token to use'
         required: true
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
+        with:
+          repository: nearform/bench-board-good-first-issues
+          token: ${{ secrets.github-token }} # `GH_PAT` is a secret that contains your PAT
+          path: good-first-issues
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
@@ -19,10 +23,10 @@ jobs:
         with:
           github-token: ${{ inputs.github-token }}
           script: |
-            const script = require('${{ github.action_path }}/dist/index.js')
+            const script = require('${{ github.action_path }}/good-first-issues/index.js')
             await script({ github, context, inputs: ${{ toJSON({
               organizations: 'sameer-org',
               timeInterval: '10 days',
               projectId: 'PN_kwDOBfteDc4AA3N5',
-              token: ${{ inputs.github-token }}
+              token: '${{ inputs.github-token }}'
             }) }} })
