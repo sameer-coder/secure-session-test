@@ -37,4 +37,4 @@ jobs:
           github-token: ${{ inputs.github-token }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
-            await script({ github, context, inputs: ${{ toJSON({inputs}) }} })
+            await script({ github, context, inputs: ${{ toJSON(inputs) }} })
