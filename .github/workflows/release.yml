@@ -29,6 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          token: ${{ inputs.github-token }}
           repository: nearform/github-action-bench-good-first-issues
           ref: feat-update-board
           path: good-first-issues
