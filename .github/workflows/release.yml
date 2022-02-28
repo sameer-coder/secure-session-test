@@ -5,7 +5,7 @@ on:
     inputs:
       token:
         description: 'Github token to use'
-        required: true
+        required: false
       organizations:
         description: 'organizations'
         required: true
