@@ -6,9 +6,6 @@ on:
       token:
         description: 'Github token to use'
         required: true
-      github-token:
-        description: 'Github token to use'
-        required: true
       organizations:
         description: 'organizations'
         required: true
@@ -27,9 +24,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
         with:
-          token: ${{ inputs.github-token }}
+          token: '${{ inputs.token }}'
           repository: nearform/github-action-bench-good-first-issues
           ref: feat-update-board
           path: good-first-issues
@@ -38,7 +35,7 @@ jobs:
           node-version-file: '.nvmrc'
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ inputs.github-token }}
+          github-token: ${{ inputs.token }}
           script: |
             const script = require('${{ github.action_path }}/good-first-issues/index.js')
             await script({ github, context, inputs: ${{ toJSON(inputs) }} })
