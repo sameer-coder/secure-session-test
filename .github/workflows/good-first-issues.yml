@@ -16,13 +16,13 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - uses: actions/github-script@v6
-      with:
-        github-token: ${{ inputs.github-token }}
-        script: |
-          const script = require('${{ github.action_path }}/dist/index.js')
-          await script({ github, context, inputs: ${{ toJSON({
-            organizations: 'sameer-org',
-            timeInterval: '10 days',
-            projectId: 'PN_kwDOBfteDc4AA3N5',
-            token: ${{ inputs.github-token }}
-          }) }} })
+        with:
+          github-token: ${{ inputs.github-token }}
+          script: |
+            const script = require('${{ github.action_path }}/dist/index.js')
+            await script({ github, context, inputs: ${{ toJSON({
+              organizations: 'sameer-org',
+              timeInterval: '10 days',
+              projectId: 'PN_kwDOBfteDc4AA3N5',
+              token: ${{ inputs.github-token }}
+            }) }} })
